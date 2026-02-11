@@ -84,10 +84,7 @@ contract FundMeTest is Test {
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         uint256 endingFundMeBalance = address(fundMe).balance;
         assertEq(endingFundMeBalance, 0);
-        assertEq(
-            startingFundMeBalance + startingOwnerBalance,
-            endingOwnerBalance
-        );
+        assertEq(startingFundMeBalance + startingOwnerBalance, endingOwnerBalance);
     }
 
     function testWithdrawFromMultipleFunders() public funded {
@@ -112,10 +109,7 @@ contract FundMeTest is Test {
 
         //assert
         assert(address(fundMe).balance == 0);
-        assert(
-            startingFundMeBalance + startingOwnerBalance ==
-                fundMe.getOwner().balance
-        );
+        assert(startingFundMeBalance + startingOwnerBalance == fundMe.getOwner().balance);
     }
 
     function testWithdrawFromMultipleFundersCheaper() public funded {
@@ -140,20 +134,17 @@ contract FundMeTest is Test {
 
         //assert
         assert(address(fundMe).balance == 0);
-        assert(
-            startingFundMeBalance + startingOwnerBalance ==
-                fundMe.getOwner().balance
-        );
+        assert(startingFundMeBalance + startingOwnerBalance == fundMe.getOwner().balance);
     }
 
     /*
-1. unit
-    - testing specific part of code
-2. integration
-    - testing how different parts of code work together
-3. forked
-    - testing our code on a simulated real environment
-4. staging
-    - testing our code in a real environment that is not production
-*/
+    1. unit
+        - testing specific part of code
+    2. integration
+        - testing how different parts of code work together
+    3. forked
+        - testing our code on a simulated real environment
+    4. staging
+        - testing our code in a real environment that is not production
+    */
 }
